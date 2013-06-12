@@ -1,0 +1,147 @@
+// Devin "Lauren" Elder
+// ASD Term 1306
+// ASD Application
+// 06/03/2013
+
+var json = {
+	"Prep_1": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Tula"],
+		"securityModel": ["Model: ","Mosin Nagant"],
+		"securityCaliber": ["Caliber: ","7.62x54R"],
+		"securityAmmo": ["Amount of Ammo: ","200"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","Yes"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","Yes"],
+		"securityNotes": ["Notes: ","Scout Rifle"]
+	},
+	"Prep_2": {
+		"securitySituation": ["Situation of Use: ","Bug In"],
+		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
+		"securityManufacturer": ["Manufacturer: ","S & W"],
+		"securityModel": ["Model: ","AR-15"],
+		"securityCaliber": ["Caliber: ","5.56"],
+		"securityAmmo": ["Amount of Ammo: ","250"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","Yes"],
+		"securityLaser": ["Laser: ","Yes"],
+		"securitySling": ["Sling: ","Yes"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_3": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Ruger"],
+		"securityModel": ["Model: ","SR22"],
+		"securityCaliber": ["Caliber: ",".22"],
+		"securityAmmo": ["Amount of Ammo: ","500"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","No"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_4": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Kel Tec"],
+		"securityModel": ["Model: ","PF9"],
+		"securityCaliber": ["Caliber: ","9mm"],
+		"securityAmmo": ["Amount of Ammo: ","250"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","Yes"],
+		"securitySling": ["Sling: ","No"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_5": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Yugo"],
+		"securityModel": ["Model: ","SKS"],
+		"securityCaliber": ["Caliber: ","7.62x39"],
+		"securityAmmo": ["Amount of Ammo: ","150"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","Yes"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_6": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Century Arms"],
+		"securityModel": ["Model: ","AK-47"],
+		"securityCaliber": ["Caliber: ","7.62x39"],
+		"securityAmmo": ["Amount of Ammo: ","400"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","Yes"],
+		"securityNotes": ["Notes: ","Foldable Stock"]
+	},
+	"Prep_7": {
+		"securitySituation": ["Situation of Use: ","Bug In"],
+		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Taurus"],
+		"securityModel": ["Model: ","Millennium G2"],
+		"securityCaliber": ["Caliber: ","9mm"],
+		"securityAmmo": ["Amount of Ammo: ","150"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","No"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_8": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Taurus"],
+		"securityModel": ["Model: ","1911"],
+		"securityCaliber": ["Caliber: ",".45 ACP"],
+		"securityAmmo": ["Amount of Ammo: ","100"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","No"],
+		"securityNotes": ["Notes: ","Flash Light"]
+	},
+	"Prep_9": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
+		"securityManufacturer": ["Manufacturer: ","Taurus"],
+		"securityModel": ["Model: ","Raging Bull"],
+		"securityCaliber": ["Caliber: ",".454 Casull"],
+		"securityAmmo": ["Amount of Ammo: ","200"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","No"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","No"],
+		"securityNotes": ["Notes: ",""]
+	},
+	"Prep_10": {
+		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"securityWeaponType": ["Weapon Type: ","Air Gun"],
+		"securityManufacturer": ["Manufacturer: ","Stoeger"],
+		"securityModel": ["Model: ","X20"],
+		"securityCaliber": ["Caliber: ",".177"],
+		"securityAmmo": ["Amount of Ammo: ","5000"],
+		"securityPod": ["Bipod/Tripod: ","No"],
+		"securityScope": ["Scope: ","Yes"],
+		"securityRedDot": ["Red-Dot Scope: ","No"],
+		"securityLaser": ["Laser: ","No"],
+		"securitySling": ["Sling: ","Yes"],
+		"securityNotes": ["Notes: ",""]
+	}
+}

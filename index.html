@@ -34,10 +34,10 @@
 			<h3>Display Preparations By...</h3>
 				<div class="ui-grid-a">
 					<div class="ui-block-a">
-						<a href="#bugInSetup" data-role="button"><strong><img src="css/images/images/bugIn.png"><br>Bug In<br>Preps</strong></a>
+						<a href="#bugInSetup" data-role="button" id="displayBugIn"><strong><img src="css/images/images/bugIn.png"><br>Bug In<br>Preps</strong></a>
 					</div>
 					<div class="ui-block-b">
-						<a href="#bugOutSetup" data-role="button"><strong><img src="css/images/images/bugOut.png"><br>Bug Out<br>Preps</strong></a>
+						<a href="#bugOutSetup" data-role="button" id="displayBugOut"><strong><img src="css/images/images/bugOut.png"><br>Bug Out<br>Preps</strong></a>
 					</div>
 				</div>
 		</section>
@@ -48,10 +48,10 @@
 			<div data-role="navbar" class="nav">
 				<ul>
 					<li>
-						<a href="#homePage" data-icon="home" class="ui-btn-active">Home<br>Page</a>
+						<a href="#homePage" data-icon="home" class="ui-btn-active" >Home<br>Page</a>
 					</li>
 					<li>
-						<a href="#securityPage" data-icon="plus">Add a<br>Prep</a>
+						<a href="#securityPage" id="SecurityPage" data-icon="plus">Add a<br>Prep</a>
 					</li>
 					<li>
 						<a href="#aboutPage" data-icon="info">About<br>Page</a>
@@ -72,18 +72,9 @@
 			</section>
 			<section>
 				<div data-role="fieldcontain">
-					<fieldset data-role="controlgroup" data-type="horizontal">
-						<legend>Situation of Use:</legend>
-							<input type="radio" name="securitySituation" id="securitySituation1" value="Bug In" />
-							<label for="securitySituation1">Bug In</label>
-							<input type="radio" name="securitySituation" id="securitySituation2" value="Bug Out" />
-							<label for="securitySituation2">Bug Out</label>
-					</fieldset>
-				</div>
-				<div data-role="fieldcontain">
 					<label for="securityWeaponType">Weapon Type:</label>
 					<select name="securityWeapType" id="securityWeaponType">
-						<option value="Choose a Type">Choose a Type</option>
+						<option value="Choose a Type" id="dflt">Choose a Type</option>
 						<option value="Traditional Bow/Crossbow">Traditional Bow/Crossbow</option>
 						<option value="Compound Bow/Crossbow">Compound Bow/Crossbow</option>
 						<option value="Air Gun">Air Gun</option>
@@ -108,6 +99,15 @@
 				<div data-role="fieldcontain">
 					<label for="securityAmmo">Amount of Ammo:</label>
 					<input type="text" id="securityAmmo" value="" style="" />
+				</div>
+				<div data-role="fieldcontain">
+					<fieldset data-role="controlgroup">
+						<legend>Check Which Situations Apply...</legend>
+						<input type="checkbox" value="No" name="checkbox" id="secSitBI" />
+						<label for="secSitBI">Bug In:</label>
+						<input type="checkbox" value="No" name="checkbox" id="secSitBO" />
+						<label for="secSitBO">Bug Out:</label>
+					</fieldset>
 				</div>
 				<div data-role="fieldcontain">
 					<fieldset data-role="controlgroup">
@@ -141,7 +141,7 @@
 						<a href="#homePage" data-icon="home">Home<br>Page</a>
 					</li>
 					<li>
-						<a href="#securityPage" data-icon="plus" class="ui-btn-active">Add a<br>Prep</a>
+						<a href="#securityPage" id="SecurityPage" data-icon="plus" class="ui-btn-active">Add a<br>Prep</a>
 					</li>
 					<li>
 						<a href="#aboutPage" data-icon="info">About<br>Page</a>
@@ -158,7 +158,8 @@
 		</div>
 		<section>
 			<h3>Displaying Bug In Preps...</h3>
-			<ul data-role="listview" class="results" id="bugInResults"></ul>
+			<a href="#homePage" data-role="button" id="clearLoc1" class="clickable">Clear All Preps</a>
+			<ul class="results" id="bugInResults"></ul>
 		</section>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" class="nav">
@@ -167,7 +168,7 @@
 						<a href="#homePage" data-icon="home">Home<br>Page</a>
 					</li>
 					<li>
-						<a href="#securityPage" data-icon="plus">Add a<br>Prep</a>
+						<a href="#securityPage" id="SecurityPage" data-icon="plus">Add a<br>Prep</a>
 					</li>
 					<li>
 						<a href="#aboutPage" data-icon="info">About<br>Page</a>
@@ -184,7 +185,8 @@
 		</div>
 		<section>
 			<h3>Displaying Bug Out Preps...</h3>
-			<ul data-role="listview" class="results" id="bugOutResults"></ul>
+			<a href="#homePage"  data-role="button" id="clearLoc2" class="clickable">Clear All Preps</a>
+			<ul class="results" id="bugOutResults"></ul>
 		</section>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" class="nav">
@@ -193,7 +195,7 @@
 						<a href="#homePage" data-icon="home">Home<br>Page</a>
 					</li>
 					<li>
-						<a href="#securityPage" data-icon="plus">Add a<br>Prep</a>
+						<a href="#securityPage" id="SecurityPage" data-icon="plus">Add a<br>Prep</a>
 					</li>
 					<li>
 						<a href="#aboutPage" data-icon="info">About<br>Page</a>
@@ -212,6 +214,10 @@
 			<h3>About this Application...</h3>
 			<p>This application is intended to help preppers and survivalists keep track of their stored preparations. Updates will include fire preparations, food preparations, water preparations, and shelter preparations.</p>
 		</section>
+		<section>
+			<button id="addJSON" class="clickable">Load JSON Data</button>
+			<button id="addXML" class="clickable">Load XML Data</button>
+		</section>
 		<div data-role="footer" data-position="fixed">
 			<div data-role="navbar" class="nav">
 				<ul>
@@ -219,7 +225,7 @@
 						<a href="#homePage" data-icon="home">Home<br>Page</a>
 					</li>
 					<li>
-						<a href="#securityPage" data-icon="plus">Add a<br>Prep</a>
+						<a href="#securityPage" id="SecurityPage" data-icon="plus">Add a<br>Prep</a>
 					</li>
 					<li>
 						<a href="#aboutPage" data-icon="info" class="ui-btn-active">About<br>Page</a>
@@ -231,7 +237,7 @@
 
 	<script type="text/javascript" src="js/jquery.js"></script>
 	<script type="text/javascript" src="js/jquery.mobile-1.3.1.min.js"></script>
-	<script type="text/javascript" src="js/json.js"></script>
-	<!--<script type="text/javascript" src="js/main.js"></script>-->
+	<!--<script type="text/javascript" src="xhr/json.js"></script>-->
+	<script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

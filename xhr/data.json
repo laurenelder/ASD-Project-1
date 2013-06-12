@@ -1,11 +1,7 @@
-// Devin "Lauren" Elder
-// ASD Term 1306
-// ASD Application
-// 06/03/2013
-
-var json = {
+{
 	"Prep_1": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Tula"],
 		"securityModel": ["Model: ","Mosin Nagant"],
@@ -19,7 +15,8 @@ var json = {
 		"securityNotes": ["Notes: ","Scout Rifle"]
 	},
 	"Prep_2": {
-		"securitySituation": ["Situation of Use: ","Bug In"],
+		"secSitBI": ["Bug In Weapon: ","Yes"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
 		"securityManufacturer": ["Manufacturer: ","S & W"],
 		"securityModel": ["Model: ","AR-15"],
@@ -33,7 +30,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_3": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","Yes"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Ruger"],
 		"securityModel": ["Model: ","SR22"],
@@ -47,7 +45,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_4": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","Yes"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Kel Tec"],
 		"securityModel": ["Model: ","PF9"],
@@ -61,7 +60,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_5": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Yugo"],
 		"securityModel": ["Model: ","SKS"],
@@ -75,7 +75,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_6": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Assault Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Century Arms"],
 		"securityModel": ["Model: ","AK-47"],
@@ -89,7 +90,8 @@ var json = {
 		"securityNotes": ["Notes: ","Foldable Stock"]
 	},
 	"Prep_7": {
-		"securitySituation": ["Situation of Use: ","Bug In"],
+		"secSitBI": ["Bug In Weapon: ","Yes"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Small Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Taurus"],
 		"securityModel": ["Model: ","Millennium G2"],
@@ -103,7 +105,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_8": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Taurus"],
 		"securityModel": ["Model: ","1911"],
@@ -117,7 +120,8 @@ var json = {
 		"securityNotes": ["Notes: ","Flash Light"]
 	},
 	"Prep_9": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Large Caliber Pistol/Rifle"],
 		"securityManufacturer": ["Manufacturer: ","Taurus"],
 		"securityModel": ["Model: ","Raging Bull"],
@@ -131,7 +135,8 @@ var json = {
 		"securityNotes": ["Notes: ",""]
 	},
 	"Prep_10": {
-		"securitySituation": ["Situation of Use: ","Bug Out"],
+		"secSitBI": ["Bug In Weapon: ","No"],
+		"secSitBO": ["Bug Out Weapon: ","Yes"],
 		"securityWeaponType": ["Weapon Type: ","Air Gun"],
 		"securityManufacturer": ["Manufacturer: ","Stoeger"],
 		"securityModel": ["Model: ","X20"],

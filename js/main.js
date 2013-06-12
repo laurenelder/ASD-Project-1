@@ -9,10 +9,12 @@ $('#homePage').on('pageinit', function() {
 	});
 
 	$('#displayBugIn').click(function() {
-		displayData("Bug In", "bugInResults");
+		displayData("Bug In");
+		$("#resultsHeader").html("Displaying Bug In Preps...");
 	});
 	$('#displayBugOut').click(function() {
-		displayData("Bug Out", "bugOutResults");
+		displayData("Bug Out");
+		$("#resultsHeader").html("Displaying Bug Out Preps...");
 	});
 	$('#').click(function() {
 
@@ -39,7 +41,8 @@ $('#bugInSetup').on('pageinit', function() {
 
 	});
 	$('.delete').click(function() {
-		deleteItem();
+		var dButton = $(this).data("key");
+		deleteItem(dButton);
 	});
 });
 
@@ -66,15 +69,29 @@ $('#aboutPage').on('pageinit', function() {
 		$.ajax({
 			url		: 'xhr/data.json',
 			type 	: 'GET',
-			dataType: 'jsonp',
-			success : function(response) {
-				console.log(response);
+			dataType: 'json',
+			success : function(data, textStatus) {
+				for (var n in data) {
+					var id = Math.floor(Math.random() * 1000001);
+					window.localStorage.setItem(id, JSON.stringify(data[n]));
+				};
+				alert("IT WORKS!!")
+				console.log(textStatus);
 			}
 		});
 		return false;
 	});
 	$('#addXML').click(function() {
-		xmlFillLocal();
+		$.ajax({
+			url		: 'xhr/data.xml',
+			type 	: 'GET',
+			dataType: 'xml',
+			success : function(data, textStatus) {
+				console.log(data);
+				console.log(textStatus);
+			}
+		});
+		return false;
 	});
 	$('#').click(function() {
 
@@ -87,12 +104,7 @@ var bugOut = "";
 
 // Clear Fields Function
 var resetFields = function() {
-	$(":input").not(":radio :checkbox").val("");
-	$(":checked").prop("checked", false);
-	$(":checkbox").val("No");
-	$(":selected").prop("selected", false);
-	//$(":radio").each().prop("selected", false);
-	//$("#dflt").attr("selected", "selected");
+	$('#securityForm')[0].reset();
 };
 
 // Clear Local Storage Function
@@ -112,29 +124,6 @@ var clearStorage = function() {
 			alert("Preps not deleted.");
 		}
 	}
-};
-
-// Auto Fill Local Storage Function
-var jsonFillLocal = function() {
-	$.ajax({
-		url		: "xhr/json.js",
-		type 	: "GET",
-		dataType: "json",
-		success : function(data, status) {
-			console.log(status, data);
-			alert("Data Stored!");
-		}
-	});
-};
-var xmlFillLocal = function() {
-	$.ajax({
-		url		: "data/data.xml",
-		type 	: "GET",
-		dataType: "xml",
-		success : function(data, status) {
-			console.log(staus, data);
-		}
-	});
 };
 
 // Store Data Function
@@ -163,95 +152,43 @@ var storeData = function(key) {
 	alert("Prep Saved!")
 };
 
-// Make Links Function
-var makeLinks = function(key, linksLi) {
-
-	// Edit Link
-	var editLink = document.createElement("a");
-	editLink.href = "#securityPage";
-	editLink.key = key;
-	editLink.setAttribute("class", "edit");
-	editLink.setAttribute("data-key", key);
-	//var editText = "Edit Prep"
-	editLink.innerHTML = "Edit Prep";
-	linksLi.appendChild(editLink);
-
-	// Break Tag
-	var breakTag = document.createElement("br");
-	linksLi.appendChild(breakTag);
-
-	// Delete Link
-	var deleteLink = document.createElement("a");
-	deleteLink.href = "#homePage";
-	deleteLink.key = key;
-	deleteLink.setAttribute("class", "delete");
-	editLink.setAttribute("data-key", key);
-	//var deleteText = "Delete User"
-	deleteLink.innerHTML = "Delete Prep";
-	linksLi.appendChild(deleteLink);
-};
-
 // Display Data Function
-var displayData = function(cat, elem) {
+var displayData = function(cat) {
 	if (window.localStorage.length === 0) {
 		alert("There are no preps to display.");
 	}
 	$(".results").empty();
 	for (var i = 0, j = window.localStorage.length; i < j; i++) {
-		//$(".results").append("<br/>");
+		$(".results").append("<br/>");
 		var key = window.localStorage.key(i);
 		var value = window.localStorage.getItem(key);
 		var obj = JSON.parse(value);
-		var makeLi = document.createElement("li");
-		console.log(obj);
-		var linksLi = document.createElement("li");
-		var results = document.getElementById(elem)
-		results.appendChild(makeLi);
-		var makeSubList = document.createElement("ul");
-		makeLi.appendChild(makeSubList);
+		var liID = "" + (i) + "";
+		var ulID = "" + key + "";
+		$(".results").append("<li id=" + liID + "></li>");
+		$("#" + liID + "").append("<ul id=" + ulID + "></ul>");
 		console.log(key);
 		if (obj.secSitBI[1] == "Yes" && cat == "Bug In" || obj.secSitBO[1] == "Yes" && cat == "Bug Out" || obj.secSitBI[1] == "Yes" && obj.secSitBO[1] == "Yes") {
-			for (var n in obj) {
-				var makeSubLi = document.createElement("li");
-				makeSubList.appendChild(makeSubLi);
-				var optSubText = obj[n][0] + " " + obj[n][1];
-				makeSubLi.innerHTML = optSubText;
-				makeSubList.appendChild(linksLi)
-			};
-			makeLinks(window.localStorage.key(i), linksLi);
-		}
-	};
-/*
-	for (var i = 0, j = window.localStorage.length; i < j; i++) {
-		//$(".results").append("<br/>");
-		$(".results").append("<li class='makeLi'></li>");
-		var key = window.localStorage.key(i);
-		var value = window.localStorage.getItem(key);
-		var obj = JSON.parse(value);
-		$(".makeLi").filter(":last").append("<ul class='makeSubList'></ul>");
-		console.log(key);
-		if (obj.secSitBI[1] == cat || obj.secSitBO[1] == cat) {
 			var content = "";
 			for (var n in obj) {
 				content += "<li>";
 				content += obj[n][0] + " " + obj[n][1];
 				content += "</li>";
 			};
-			$(".makeSubList").filter(":last").append(content);
-			$(".makeSubList").filter(":last").append("<li class='linksLi'><a href='#securityPage' class='edit'>Edit Prep</a></li>");
-			$(".makeSubList").filter(":last").append("<li><a href='#homePage' class='delete'>Delete Bike</a></li>");
-			$(".edit").filter(":last").data("key", key);
-			$(".delete").filter(":last").data("key", key);
+			$("#" + ulID + "").append(content);
+			$("#" + ulID + "").append(
+				"<li><a href='#securityPage' data-role='button' data-key='" + ulID + "' class='edit'>Edit Prep</a></li>" 
+				+ 
+				"<li><a href='#homePage' data-role='button' data-key='" + ulID + "' class='delete'>Delete Prep</a></li>"
+			);
 		}
 	};
-*/
 };
 
 // Delete Item Function
-var deleteItem = function() {
+var deleteItem = function(dButton) {
 	var ask = confirm("Delete Prep?");
 	if (ask) {
-		var dButton = $(this).data("key")
 		window.localStorage.removeItem(dButton);
 		alert("Prep Deleted");
 	} else {

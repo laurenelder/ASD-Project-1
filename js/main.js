@@ -39,6 +39,7 @@ $('#Setup').on('pageinit', function() {
 	});
 	$('.edit').click(function() {
 		var eButton = $(this).data("key");
+		alert(eButton);
 		editItem(eButton);
 	});
 	$('.delete').click(function() {

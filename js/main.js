@@ -30,7 +30,7 @@ $('#securityPage').on('pageinit', function() {
 	});
 });
 
-$('#bugInSetup').on('pageinit', function() {
+$('#Setup').on('pageinit', function() {
 	$('#SecurityPage').click(function() {
 		resetFields();
 	});
@@ -38,26 +38,12 @@ $('#bugInSetup').on('pageinit', function() {
 		clearStorage();
 	});
 	$('.edit').click(function() {
-
+		var eButton = $(this).data("key");
+		editItem(eButton);
 	});
 	$('.delete').click(function() {
 		var dButton = $(this).data("key");
 		deleteItem(dButton);
-	});
-});
-
-$('#bugOutSetup').on('pageinit', function() {
-	$('#SecurityPage').click(function() {
-		resetFields();
-	});
-	$('#clearLoc2').click(function() {
-		clearStorage();
-	});
-	$('#').click(function() {
-
-	});
-	$('#').click(function() {
-
 	});
 });
 
@@ -75,8 +61,6 @@ $('#aboutPage').on('pageinit', function() {
 					var id = Math.floor(Math.random() * 1000001);
 					window.localStorage.setItem(id, JSON.stringify(data[n]));
 				};
-				alert("IT WORKS!!")
-				console.log(textStatus);
 			}
 		});
 		return false;
@@ -87,8 +71,28 @@ $('#aboutPage').on('pageinit', function() {
 			type 	: 'GET',
 			dataType: 'xml',
 			success : function(data, textStatus) {
-				console.log(data);
-				console.log(textStatus);
+				var items = $(data);
+				items.find("item").each(function() {
+					var id = Math.floor(Math.random() * 1000001);
+				    var item = $(this);
+				    //var VALUE = $(item).find("secSitBI").text();
+				   // console.log(VALUE);
+				    var	XMLitem					= {};
+					XMLitem.secSitBI				= ["Bug In Weapon: ", $(item).find("secSitBI").text()];
+					XMLitem.secSitBO				= ["Bug Out Weapon: ", $(item).find("secSitBO").text()];
+					XMLitem.securityWeaponType		= ["Weapon Type: ", $(item).find("securityWeaponType").text()];
+					XMLitem.securityManufacturer	= ["Manufacturer: ", $(item).find("securityManufacturer").text()];
+					XMLitem.securityModel			= ["Model: ", $(item).find("securityModel").text()];
+					XMLitem.securityCaliber			= ["Caliber: ", $(item).find("securityCaliber").text()];
+					XMLitem.securityAmmo			= ["Amount of Ammo: ", $(item).find("securityAmmo").text()];
+					XMLitem.securityPod				= ["Has Bipod/Tripod: ", $(item).find("securityPod").text()];
+					XMLitem.securityScope			= ["Has Scope: ", $(item).find("securityScope").text()];
+					XMLitem.securityRedDot			= ["Has Red-Dot Sight: ", $(item).find("securityRedDot").text()];
+					XMLitem.securityLaser			= ["Has Laser: ", $(item).find("securityLaser").text()];
+					XMLitem.securitySling			= ["Has Sling: ", $(item).find("securitySling").text()];
+					XMLitem.securityNotes			= ["Notes: ", $(item).find("secSitBI").text()];
+					window.localStorage.setItem(id, JSON.stringify(XMLitem));
+				});
 			}
 		});
 		return false;
@@ -152,6 +156,45 @@ var storeData = function(key) {
 	alert("Prep Saved!")
 };
 
+// Edit Item Function
+var editItem = function(eButton) {
+	console.log(eButton);
+	var newKey = eButton;
+	var editValue = window.localStorage.getItem(newKey);
+	var eItem = JSON.parse(editValue);
+	$("#securityWeaponType").val(eItem.securityWeaponType[1]);
+	$("#securityManufacturer").val(eItem.securityManufacturer[1]);
+	$("#securityModel").val(eItem.securityModel[1]);
+	$("#securityCaliber").val(eItem.securityCaliber[1]);
+	$("#securityAmmo").val(eItem.securityAmmo[1]);
+	if (eItem.secSitBI[1] == "Yes") {
+		$("#secSitBI").prop("checked", true);
+	};
+	if (eItem.secSitBO[1] == "Yes") {
+		$("#secSitBO").prop("checked", true);
+	};
+	if (eItem.securityPod[1] == "Yes") {
+		$("#securityPod").prop("checked", true);
+	};
+	if (eItem.securityScope[1] == "Yes") {
+		$("#securityScope").prop("checked", true);
+	};
+	if (eItem.securityRedDot[1] == "Yes") {
+		$("#securityRedDot").prop("checked", true);
+	};
+	if (eItem.securityLaser[1] == "Yes") {
+		$("#securityLaser").prop("checked", true);
+	};
+	if (eItem.securitySling[1] == "Yes") {
+		$("#securitySling").prop("checked", true);
+	};
+	$("#securityNotes").val(eItem.securityNotes[1]);
+	$("#securitySubmit").click(function() {
+		storeData(newKey);
+		console.log(newKey);
+	});
+};
+
 // Display Data Function
 var displayData = function(cat) {
 	if (window.localStorage.length === 0) {
@@ -167,7 +210,6 @@ var displayData = function(cat) {
 		var ulID = "" + key + "";
 		$(".results").append("<li id=" + liID + "></li>");
 		$("#" + liID + "").append("<ul id=" + ulID + "></ul>");
-		console.log(key);
 		if (obj.secSitBI[1] == "Yes" && cat == "Bug In" || obj.secSitBO[1] == "Yes" && cat == "Bug Out" || obj.secSitBI[1] == "Yes" && obj.secSitBO[1] == "Yes") {
 			var content = "";
 			for (var n in obj) {
@@ -196,7 +238,7 @@ var deleteItem = function(dButton) {
 	}
 };
 
-// Edit Item Function
+
 
 
 

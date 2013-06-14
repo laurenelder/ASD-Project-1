@@ -1,7 +1,7 @@
 // Devin "Lauren" Elder
 // ASD Term 1306
 // ASD Application
-// 06/03/2013
+// 06/13/2013
 
 $('#homePage').on('pageinit', function() {
 	$('#SecurityPage').click(function() {
@@ -61,6 +61,7 @@ $('#aboutPage').on('pageinit', function() {
 					var id = Math.floor(Math.random() * 1000001);
 					window.localStorage.setItem(id, JSON.stringify(data[n]));
 				};
+				alert("JSON Loaded");
 			}
 		});
 		return false;
@@ -93,6 +94,7 @@ $('#aboutPage').on('pageinit', function() {
 					XMLitem.securityNotes			= ["Notes: ", $(item).find("secSitBI").text()];
 					window.localStorage.setItem(id, JSON.stringify(XMLitem));
 				});
+				alert("XML Loaded")
 			}
 		});
 		return false;
